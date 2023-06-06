@@ -1,0 +1,66 @@
+﻿@model BlogProjectWeb.Models.ViewModels.EditBlogPostRequest
+
+@{
+    ViewData["Title"] = "Edit Blog Post";
+}
+
+<h2>Edit Blog Post</h2>
+
+<form method="post" action="/AdminBlogPost/Update">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="form-group">
+        <label asp-for="@Model.Heading"></label>
+        <input asp-for="@Model.Heading" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.PageTitle"></label>
+        <input asp-for="@Model.PageTitle" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Content"></label>
+        <textarea asp-for="@Model.Content" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.FeaturedImageUrl"></label>
+        <input asp-for="@Model.FeaturedImageUrl" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ShortDescription"></label>
+        <input asp-for="@Model.ShortDescription" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.UrlHandle"></label>
+        <input asp-for="@Model.UrlHandle" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.PublishedDate"></label>
+        <input asp-for="@Model.PublishedDate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Author"></label>
+        <input asp-for="@Model.Author" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Visible"></label>
+        <input type="checkbox" asp-for="@Model.Visible" class="form-control" />
+    </div>
+  
+
+    <div class="form-group">
+        <label asp-for="@Model.SelectedTags"></label>
+        <select asp-for="@Model.SelectedTags" asp-items="@Model.Tags" multiple class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+
+    <a asp-action="Delete" asp-controller="AdminBlogPost" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+</form>

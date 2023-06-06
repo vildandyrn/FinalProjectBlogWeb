@@ -1,0 +1,64 @@
+﻿@model BlogProjectWeb.Models.ViewModels.AddBlogPostReq
+
+@{
+    ViewData["Title"] = "Add Blog Post";
+}
+
+<h2>Add Blog Post</h2>
+
+<form asp-action="Add" asp-controller="AdminBlogPost" method="post">
+    <div class="form-group">
+        <label asp-for="Heading"></label>
+        <input asp-for="Heading" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PageTitle"></label>
+        <input asp-for="PageTitle" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ShortDescription"></label>
+        <input asp-for="ShortDescription" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FeaturedImageUrl"></label>
+        <input asp-for="FeaturedImageUrl" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UrlHandle"></label>
+        <input asp-for="UrlHandle" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PublishedDate"></label>
+        <input asp-for="PublishedDate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Author"></label>
+        <input asp-for="Author" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Visible"></label>
+        <input type="checkbox" asp-for="Visible" class="form-check-input" />
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label asp-for="SelectedTags"></label>
+        <select asp-for="SelectedTags" asp-items="Model.Tags" multiple class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
